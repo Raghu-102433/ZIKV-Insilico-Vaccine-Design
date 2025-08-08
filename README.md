@@ -54,6 +54,14 @@ This project presents an **in silico immunoinformatics-based pipeline** for desi
 - Codon-optimized vaccine shows high potential for **expression in E. coli**.
 
 ---
+
+## 🧪 Research Outcome & Future Work
+
+This study presents a promising multi-epitope vaccine candidate against ZIKV, supported by strong in silico evidence of immunogenicity, stability, and receptor binding. While the computational results are encouraging, experimental validation through in vitro and in vivo studies will be essential to confirm its real-world efficacy and safety.
+
+---
+
+---
 ## 📄 License
 
 This project is licensed under the **MIT License**.
