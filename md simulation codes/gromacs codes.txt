@@ -1,0 +1,43 @@
+gmx pdb2gmx -f single-new.pdb -o 1.gro -p 1.top -water spce -ignh
+# Select 15 (for Amber99SB-ILDN or other force field as prompted)
+
+gmx editconf -f 1.gro -o box.gro -c -d 1.0 -bt cubic
+
+gmx solvate -cp box.gro -cs spc216.gro -o water_box.gro -p 1.top
+
+gmx grompp -f ions.mdp -c water_box.gro -p 1.top -o ions.tpr
+gmx genion -s ions.tpr -o water_ions.gro -p 1.top -pname NA -nname CL -neutral
+# Type: 13 and press Enter (select "SOL" group)
+
+gmx grompp -f minim.mdp -c water_ions.gro -p 1.top -o energymin.tpr
+gmx mdrun -v -s energymin.tpr -deffnm em
+
+gmx energy -f em.edr -o potential.xvg
+# Type: 10 0 and press Enter (select Potential, then end with 0)
+
+gmx grompp -f nvt.mdp -c em.gro -r em.gro -p 1.top -o nvt.tpr
+gmx mdrun -deffnm nvt
+
+gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p 1.top -o npt.tpr
+gmx mdrun -deffnm npt
+
+gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p 1.top -o full_md.tpr
+gmx mdrun -deffnm full_md
+
+gmx trjconv -s full_md.tpr -f full_md.xtc -o full_md1.xtc -pbc mol -center
+# Type: 1 and Enter (e.g., Protein), then 0 and Enter (System)
+
+gmx rms -s full_md.tpr -f full_md1.xtc -o rmsd.xvg
+# Type: 4 and Enter (Backbone), then 4 and Enter
+
+gmx rmsf -s full_md.tpr -f full_md1.xtc -o rmsf.xvg
+# Type: 4 and Enter
+
+gmx rmsf -s full_md.tpr -f full_md1.xtc -res -o rmsf_residue.xvg
+# Type: 4 and Enter
+
+gmx sasa -s full_md.tpr -f full_md1.xtc -o sasa.xvg -surface 1 -output 0
+# Type: 1 and Enter (Protein)
+
+gmx gyrate -s full_md.tpr -f full_md1.xtc -o rg.xvg
+# Type: 1 and Enter (Protein)
