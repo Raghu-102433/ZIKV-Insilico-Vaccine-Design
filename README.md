@@ -1,6 +1,6 @@
 # ZIKV Insilico Vaccine Design
 In silico immunoinformatics-based pipeline for designing a multi-epitope vaccine (MEV) against the Zika virus (ZIKV), a re-emerging flavivirus associated with severe neurological and congenital disorders
-# 🧬 ZIKV Multi-Epitope Vaccine Design
+# ZIKV Multi-Epitope Vaccine Design
 
 This project presents an **in silico immunoinformatics-based pipeline** for designing a **multi-epitope vaccine (MEV)** against the **Zika virus (ZIKV)**, a re-emerging flavivirus associated with severe neurological and congenital disorders such as microcephaly and Guillain-Barré syndrome.
 
@@ -15,7 +15,7 @@ This project presents an **in silico immunoinformatics-based pipeline** for desi
 
 ---
 
-## 🧪 Target Proteins
+## Target Proteins
 
 - **NS5**
 - **NS4**
@@ -45,7 +45,7 @@ This project presents an **in silico immunoinformatics-based pipeline** for desi
 
 ---
 
-## 🧬 Highlights
+## Highlights
 
 - Selected **7 CTL**, **9 HTL**, and **5 B-cell** epitopes.
 - Achieved **91% global population coverage**.
@@ -55,7 +55,7 @@ This project presents an **in silico immunoinformatics-based pipeline** for desi
 
 ---
 
-## 🧪 Research Outcome & Future Work
+## Research Outcome & Future Work
 
 This study presents a promising multi-epitope vaccine candidate against ZIKV, supported by strong in silico evidence of immunogenicity, stability, and receptor binding. While the computational results are encouraging, experimental validation through in vitro and in vivo studies will be essential to confirm its real-world efficacy and safety.
 
